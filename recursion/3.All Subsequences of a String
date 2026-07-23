@@ -1,0 +1,34 @@
+class Solution {
+    
+    public static void getsubsequence(String s,int index,StringBuilder output,List<String>answer){
+        if(index>=s.length()){
+            answer.add(output.toString());
+            return;
+        }
+        char ch = s.charAt(index);
+        
+        output.append(ch);
+        getsubsequence(s,index+1,output,answer);
+        
+        output.deleteCharAt(output.length()-1);
+        getsubsequence(s,index+1,output,answer);
+        
+       
+    }
+    
+    
+    public List<String> powerSet(String s) {
+        // Code here
+        List<String> answer = new ArrayList<>();
+        StringBuilder output = new StringBuilder();
+        int index = 0;
+        
+        getsubsequence(s,index,output,answer);
+        
+        Collections.sort(answer);
+        return answer;
+    }
+}
+
+
+https://www.geeksforgeeks.org/problems/power-set4302/1
