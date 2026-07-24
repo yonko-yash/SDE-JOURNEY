@@ -1,0 +1,28 @@
+class Solution {
+
+    static int solve(int nums[],int i){
+
+        if(i>=nums.length){
+            return 0;
+        }
+
+        int include = nums[i] + solve(nums,i+2);
+        int exclude = 0 + solve(nums,i+1);
+        int finalans = Math.max(include,exclude);
+        return finalans;
+    }
+
+
+
+    public int rob(int[] nums) {
+        int index = 0;
+        int ans = solve(nums,index);
+        return ans;
+    }
+}
+
+
+
+https://leetcode.com/problems/house-robber/
+
+Time Limit Exceeded
